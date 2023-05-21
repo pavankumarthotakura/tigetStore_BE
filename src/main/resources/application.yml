@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tigerdb?useSSL=false
+    username: postgres
+    password: 12345
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/tigerdb
+    user: postgres
+    password: 12345
+    check-location: false
+    locations: classpath:/dbs/migration/
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: update
+  security:
+    ignored: /**
+    basic:
+      enable: false
